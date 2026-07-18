@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f7f8fa;
+    color:#222;
+    line-height:1.7;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+    background:#ffffff;
+    position:sticky;
+    top:0;
+    z-index:999;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo h2{
+    color:#008753;
+    font-size:2rem;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+.nav-links a{
+    color:#333;
+    font-weight:600;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#008753;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+    padding:80px 0;
+    background:#ffffff;
+}
+
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+}
+
+.tag{
+    display:inline-block;
+    background:#008753;
+    color:blue;
+    padding:8px 18px;
+    border-radius:30px;
+    margin-bottom:25px;
+    font-size:.9rem;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:#666;
+    font-size:1.1rem;
+}
+
+.hero-image img{
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    background:#008753;
+    color:#fff;
+    padding:15px 35px;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#006b42;
+    transform:translateY(-3px);
+}
+
+/* ===========================
+   ADS
+=========================== */
+
+.ad-section{
+    padding:50px 0;
+}
+
+.ad-box{
+    height:120px;
+    background:#ececec;
+    border:2px dashed #bbb;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.2rem;
+    color:#666;
+}
+
+/* ===========================
+   FEATURED
+=========================== */
+
+.featured{
+    padding:70px 0;
+}
+
+.featured h2{
+    margin-bottom:35px;
+    font-size:2rem;
+}
+
+.featured-card{
+    background:white;
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:30px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.featured-card div{
+    padding:30px;
+}
+
+.featured-card h3{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.featured-card p{
+    color:#666;
+    margin-bottom:20px;
+}
+
+.featured-card a{
+    color:#008753;
+    font-weight:bold;
+}
+
+/* ===========================
+   NEWS GRID
+=========================== */
+
+#latest{
+    padding:70px 0;
+}
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.news-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.news-card:hover{
+    transform:translateY(-8px);
+}
+
+.news-card img{
+    height:220px;
+    width:100%;
+    object-fit:cover;
+}
+
+.news-card h3{
+    padding:20px 20px 10px;
+}
+
+.news-card p{
+    padding:0 20px;
+    color:#666;
+}
+
+.news-card a{
+    display:inline-block;
+    padding:20px;
+    color:#008753;
+    font-weight:bold;
+}
+
+/* ===========================
+   TOPICS
+=========================== */
+
+#topics{
+    padding:70px 0;
+    text-align:center;
+}
+
+.topics{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.topics a{
+    background:#008753;
+    color:#fff;
+    padding:12px 28px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.topics a:hover{
+    background:#006b42;
+}
+
+/* ===========================
+   NEWSLETTER
+=========================== */
+
+.newsletter{
+    padding:90px 20px;
+    background:#008753;
+    color:white;
+    text-align:center;
+}
+
+.newsletter h2{
+    font-size:2.5rem;
+}
+
+.newsletter p{
+    margin:20px auto;
+    max-width:700px;
+}
+
+.newsletter .btn{
+    background:white;
+    color:#008753;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+    background:#111;
+    color:#ccc;
+    text-align:center;
+    padding:35px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+.hero-content{
+    grid-template-columns:1fr;
+}
+
+.featured-card{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigeria Today | Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+
+                <div class="logo">
+                    <h2>Nigeria Today</h2>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#latest">Latest</a></li>
+                    <li><a href="#topics">Topics</a></li>
+                    <li><a href="signup.html">Newsletter</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <p class="tag">
+                    🇳🇬 Independent Nigerian News
+                </p>
+
+                <h1>
+                    Stay Informed With The Stories Shaping Nigeria.
+                </h1>
+
+                <p>
+                    Politics, Economy, Security, Education, Technology and more,
+                    delivered in a clean and modern reading experience.
+                </p>
+
+                <a href="article.html" class="btn">
+                    Read Featured Story
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+
+                <img src="Mrpresident.jpg"
+                     alt="President of Nigeria">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Advertisement -->
+    <section class="ad-section">
+
+        <div class="container">
+
+            <div class="ad-box">
+                Advertisement
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Featured Story -->
+    <section class="featured">
+
+        <div class="container">
+
+            <h2>Featured Story</h2>
+
+            <div class="featured-card">
+
+                <img src="Glob.jpg" alt="Featured Story">
+
+                <div>
+
+                    <h3>
+                        Nigeria's Economy Shows New Signs Of Growth
+                    </h3>
+
+                    <p>
+                        A quick overview of today's biggest national story.
+                    </p>
+
+                    <a href="article.html">
+                        Continue Reading →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Latest Articles -->
+    <section id="latest">
+
+        <div class="container">
+
+            <h2>Latest News</h2>
+
+            <div class="news-grid">
+
+                <article class="news-card">
+
+                    <img src="Glob.jpg" alt="">
+
+                    <h3>Politics</h3>
+
+                    <p>
+                        Headline goes here...
+                    </p>
+
+                    <a href="article.html">
+                        Read More
+                    </a>
+
+                </article>
+
+                <article class="news-card">
+
+                    <img src="Glob.jpg" alt="">
+
+                    <h3>Economy</h3>
+
+                    <p>
+                        Headline goes here...
+                    </p>
+
+                    <a href="article.html">
+                        Read More
+                    </a>
+
+                </article>
+
+                <article class="news-card">
+
+                    <img src="Glob.jpg" alt="">
+
+                    <h3>Technology</h3>
+
+                    <p>
+                        Headline goes here...
+                    </p>
+
+                    <a href="article.html">
+                        Read More
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Advertisement -->
+    <section class="ad-section">
+
+        <div class="container">
+
+            <div class="ad-box">
+                Advertisement
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+    <section id="topics">
+
+        <div class="container">
+
+            <h2>Browse Topics</h2>
+
+            <div class="topics">
+
+                <a href="#">Politics</a>
+                <a href="#">Economy</a>
+                <a href="#">Security</a>
+                <a href="#">Education</a>
+                <a href="#">Technology</a>
+                <a href="#">Sports</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <div class="container">
+
+            <h2>Never Miss A Story</h2>
+
+            <p>
+                Join our newsletter for the latest Nigerian news delivered directly to your inbox.
+            </p>
+
+            <a href="signup.html" class="btn">
+                Subscribe
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Nigeria Today. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
+<script>
+
+// ==============================
+// Sticky Header Shadow
+// ==============================
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.12)";
+    } else {
+        header.style.boxShadow = "0 2px 15px rgba(0,0,0,.08)";
+    }
+
+});
+
+
+// ==============================
+// Fade In Animation
+// ==============================
+
+const elements = document.querySelectorAll(
+".hero, .featured, .news-card, .topics a, .newsletter"
+);
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity="1";
+            entry.target.style.transform="translateY(0)";
+
+        }
+
+    });
+
+},{
+    threshold:.15
+});
+
+elements.forEach(el=>{
+
+    el.style.opacity="0";
+    el.style.transform="translateY(40px)";
+    el.style.transition=".8s ease";
+
+    observer.observe(el);
+
+});
+
+
+// ==============================
+// Back To Top Button
+// ==============================
+
+const topButton = document.createElement("button");
+
+topButton.innerHTML = "↑";
+
+document.body.appendChild(topButton);
+
+topButton.style.position = "fixed";
+topButton.style.right = "25px";
+topButton.style.bottom = "25px";
+topButton.style.width = "55px";
+topButton.style.height = "55px";
+topButton.style.border = "none";
+topButton.style.borderRadius = "50%";
+topButton.style.background = "#008753";
+topButton.style.color = "#fff";
+topButton.style.fontSize = "22px";
+topButton.style.cursor = "pointer";
+topButton.style.display = "none";
+topButton.style.boxShadow = "0 10px 25px rgba(0,0,0,.25)";
+topButton.style.transition = ".3s";
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY > 400){
+
+        topButton.style.display="block";
+
+    }else{
+
+        topButton.style.display="none";
+
+    }
+
+});
+
+topButton.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+        behavior:"smooth"
+
+    });
+
+});
+
+
+// ==============================
+// Hover Effect
+// ==============================
+
+topButton.addEventListener("mouseenter",()=>{
+
+    topButton.style.transform="scale(1.1)";
+
+});
+
+topButton.addEventListener("mouseleave",()=>{
+
+    topButton.style.transform="scale(1)";
+
+});
+
+</script>
+
+</body>
+</html>
